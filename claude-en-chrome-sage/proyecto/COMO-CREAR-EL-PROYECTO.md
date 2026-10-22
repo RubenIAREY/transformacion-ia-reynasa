@@ -11,13 +11,10 @@
 
 Los nombres de los menús pueden cambiar un poco según la versión de la app.
 
-## Para los pilotos con Claude Code
-Copia la carpeta `claude-code\` en el ordenador de la persona y ábrela como carpeta en Claude Code. El `CLAUDE.md` carga las mismas normas, y `.claude\settings.json` bloquea de verdad algunas herramientas del navegador: ejecutar código en la página, subir archivos y rellenar formularios automáticamente. Activa Chrome con `/chrome`.
-
 ## Para IT
 - Si la cuenta de Claude de la empresa es **Team o Enterprise**: en **Configuración de la organización › Claude in Chrome**, pon una **lista de webs permitidas** (Sage y las que se aprueben) y decide quién puede usar la extensión.
 - **En Sage:** se puede fijar un **máximo de sesiones por usuario** con los parámetros **MAXSES1 y MAXSES2**, y repasar los permisos del rol de cada persona, que son el candado de verdad.
 - **Revisión al mes:** repetir la medición de sesiones (Administración › Gestión de sesiones) y decidir si se pasa a la fase 2.
 
 ## Paso de fase
-Cuando IT apruebe la fase 2, se sustituye `normas-seguridad-fase-1.md` por la versión 2. Se cambia la línea de fase en las instrucciones y se sube el archivo nuevo al proyecto (y a `claude-code\`).
+Cuando IT apruebe la fase 2, se sustituye `normas-seguridad-fase-1.md` por la versión 2. Se cambia la línea de fase en las instrucciones y se sube el archivo nuevo al proyecto.

@@ -29,6 +29,9 @@ En la fase 1, Claude **solo navega, consulta y descarga**. Todo lo demás está 
 3. **Sal de cada pantalla con el botón de salir** antes de cerrar la pestaña. Si se cierra con la X, la sesión sigue viva en Sage hasta que caduca.
 4. **Una sola sesión de Claude manejando Chrome a la vez** por persona.
 5. **Explica cada paso** en una línea antes de darlo.
+6. **Descarga solo en tu carpeta de trabajo**, nunca dentro de las carpetas oficiales del departamento. La persona revisa el resultado y lo mueve ella a la carpeta oficial.
+7. **En otras webs de la empresa** (Expert SGA, NextShop, Drive…) se aplican las mismas normas: consultar, descargar y comparar, nunca cambiar.
+8. **Nunca contabilizar, registrar facturas ni dar el OK a pagos**, en ninguna fase.
 
 ## Qué hacer si…
 - **…el encargo pide algo prohibido:** no lo hagas, explica por qué y propone la alternativa permitida.

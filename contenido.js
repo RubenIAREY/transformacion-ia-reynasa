@@ -181,6 +181,59 @@
           ] },
         ] }] },
 
+      // Fuente única: Proyecto-Claude-en-Chrome/departamentos-y-niveles.md (sin nombres de personas)
+      { id: 'departamentos', paso: 'p2', t: 'Claude en Chrome en cada departamento', corto: 'En cada departamento', img: 'sabemos',
+        x: 'Lo que más se hace en Sage es buscar información. Justo lo que Claude en Chrome hace bien y sin riesgo.',
+        subs: [
+          { id: 'departamentos', t: 'Seis departamentos', blocks: [
+            { t: 'frase', x: 'Lo que más se hace en Sage es buscar información; después, descargar y cruzar.', sub: 'Lo hemos visto en todos los departamentos con los que hemos hablado.' },
+            { t: 'deptos', items: [
+              { ico: 'carrito', k: 'Compras', hoy: 'Tarifas, propuestas de pedido y pedidos a proveedor, cruzados a mano.',
+                con: ['Consulta la propuesta de pedido, el stock y lo pendiente de recibir', 'Compara la tarifa del proveedor con los precios de Sage', 'Busca equivalencias de referencias en NextShop'],
+                gana: 'Menos errores de precio y referencia, y adiós a los cruces a mano.', nuncaT: 'De momento no', nunca: 'subir tarifas, precios ni referencias.' },
+              { ico: 'caja', k: 'Recepción y almacén', hoy: 'Buscar el albarán, descargarlo y contrastarlo a mano con el del proveedor.',
+                con: ['Busca y descarga el albarán', 'Lo compara con el del proveedor y da las diferencias', 'Rutina mensual: cruza Sage y Expert SGA para el informe de litigios'],
+                gana: 'Abres el archivo con las diferencias ya encontradas.' },
+              { ico: 'factura', k: 'Conformidad de facturas', hoy: 'Revisar cantidades, precios, cargos y abonos de cada factura frente a sus albaranes.',
+                con: ['Busca y descarga los albaranes de cada factura', 'Prepara el contraste factura-albaranes con solo las diferencias'],
+                gana: 'La revisión empieza por las diferencias, no por cero.', nunca: 'registrar ni contabilizar facturas.' },
+              { ico: 'calculadora', k: 'Contabilidad y tesorería', hoy: 'Lo que más se hace es buscar información y sacar informes.',
+                con: ['Busca la situación de un cliente o asientos por importe', 'Descarga informes, como clientes con encurso superado', 'Prepara los vencimientos por método de pago'],
+                gana: 'Horas de búsqueda que pasan a ser una pregunta.', nunca: 'contabilizar, pagar ni dar el OK a un pago.' },
+              { ico: 'euro', k: 'Cobros y riesgo', hoy: 'Todo el día mirando qué debe cada cliente: vencidos e impagos.',
+                con: ['«Resúmeme la situación del cliente X»: deuda, vencidos e impagos', 'En segundos, antes de llamar'],
+                gana: 'Cada llamada, con el resumen ya hecho.' },
+              { ico: 'telefono', k: 'Comercial y call center', hoy: 'Consultar stock, pedidos y tarifas, y sacar los informes de Ventas.',
+                con: ['«¿Hay stock?», «¿se ha entregado?», «¿qué tarifa tiene?»', 'Descarga el informe comercial del mes, resumido'],
+                gana: 'Respuestas al cliente más rápidas.' },
+            ] },
+          ] },
+          { id: 'niveles', t: 'Niveles de acceso', blocks: [
+            { t: 'escalera', items: [
+              { k: 'Consultar', x: 'Buscar y leer en Sage y en otras webs de la empresa.', ej: '«¿Hay stock de esta referencia?»', cuando: 'Desde el primer día' },
+              { k: 'Descargar y comparar', x: 'A una carpeta de trabajo, contra el documento del proveedor o un Excel.', ej: '«Descarga el albarán y compáralo con el del proveedor»', cuando: 'Fase 1 (ahora), con OK de IT por persona' },
+              { k: 'Rutinas', x: 'Tareas que se repiten solas cada semana o cada mes.', ej: '«Cada lunes, saca el informe de litigios y dime las diferencias»', cuando: 'Cuando 1 y 2 lleven un tiempo sin incidencias' },
+              { k: 'Cambios controlados', x: 'Cambios concretos en una lista cerrada de pantallas, siempre con confirmación.', ej: 'Por decidir', cuando: 'Dentro de unos meses, solo si todo ha ido bien' },
+            ] },
+            { t: 'nota', x: 'Se sube de nivel cuando IT lo aprueba.' },
+            { t: 'frase', tono: 'rojo', kicker: 'Nunca, en ningún nivel', x: 'Contabilizar, dar el OK a pagos ni registrar facturas.', sub: 'Si se sube mal una tanda de facturas, el problema llega hasta Hacienda.' },
+          ] },
+          { id: 'seguridad', t: 'Barreras y medida', blocks: [
+            { t: 'h', x: 'Barreras de seguridad' },
+            { t: 'tarjetas', items: [
+              { ico: 'carpeta', k: 'Su propia carpeta de trabajo', x: 'Claude descarga ahí, nunca en las carpetas oficiales. La persona revisa y mueve ella el resultado a la oficial.' },
+              { ico: 'usuarios', k: 'Poco a poco', x: 'Primero pocas personas, de recepción y almacén. Revisión a los pocos meses: solo se amplía si no hay incidencias.' },
+              { ico: 'stop', k: 'Nunca contabilizar', x: 'Ni registrar facturas ni dar el OK a pagos, en ninguna fase.' },
+            ] },
+            { t: 'h', x: 'Cómo lo mediremos' },
+            { t: 'tarjetas', items: [
+              { ico: 'reloj', k: 'Tiempo', x: 'Por tarea, antes y después: buscar un albarán, cruzar un informe, preparar el de litigios.' },
+              { ico: 'alerta', k: 'Incidencias', x: 'Errores o vueltas atrás. Objetivo: cero.' },
+              { ico: 'grafica', k: 'Uso', x: 'Consultas y descargas por persona y semana.' },
+            ] },
+          ] },
+        ] },
+
       { id: 'presentacion', paso: 'p2', t: 'La presentación', corto: 'Presentación', img: 'presentacion', sinMedio: true,
         x: 'Cómo funciona Claude en Chrome dentro de Sage X3, diapositiva a diapositiva.',
         subs: [{ id: 'presentacion', t: 'La presentación', blocks: [
@@ -265,6 +318,7 @@
               { f: 'pantallas-sage-permitidas.md', k: 'Pantallas de Sage permitidas', x: 'Consultas, informes y solo lectura.' },
               { f: 'ejemplos-de-encargos.md', k: 'Ejemplos de encargos', x: 'Bien pedidos y los que rechaza.' },
               { f: 'COMO-CREAR-EL-PROYECTO.md', k: 'Cómo crear el proyecto', x: 'Paso a paso, y lo que hace IT.' },
+              { f: 'departamentos-y-niveles.md', k: 'Departamentos y niveles', x: 'Qué haría en cada departamento y con qué acceso.' },
             ] },
           ] },
           { id: 'capas', t: 'Cuatro capas', blocks: [
@@ -319,7 +373,7 @@
           ] },
         ] },
 
-      { id: 'normas', paso: 'p2', t: 'Siete normas de uso', corto: 'Normas', img: 'normas',
+      { id: 'normas', paso: 'p2', t: 'Diez normas de uso', corto: 'Normas', img: 'normas',
         x: 'Sencillas y para todo el personal.',
         subs: [
           { id: 'normas', t: 'Las normas', blocks: [
@@ -331,6 +385,9 @@
               { k: 'Una sola sesión de Claude con Chrome', x: 'Varias sesiones sobre el mismo Chrome se pisan las pestañas.' },
               { k: 'Consultas siempre con filtro', x: 'Un listado completo de artículos sin filtro tardó unos 20 segundos.' },
               { k: 'Al acabar: botón de salir y después cerrar', x: 'Sal de la pantalla con el botón de salir de Sage antes de cerrar la pestaña. Con la X, la sesión sigue viva hasta que caduca (2 horas).' },
+              { k: 'Descarga solo en tu carpeta de trabajo', x: 'Nunca en las carpetas oficiales. Tú revisas el resultado y lo mueves a la oficial.' },
+              { k: 'En otras webs de la empresa, las mismas normas', x: 'Expert SGA, NextShop, Drive…: consultar, descargar y comparar, nunca cambiar.' },
+              { k: 'Nunca contabilizar, registrar facturas ni dar el OK a pagos', x: 'En ninguna fase.' },
             ] },
           ] },
           { id: 'antes', t: 'Antes de empezar', blocks: [
@@ -376,8 +433,8 @@
     ],
     checklist: [
       { g: 'Antes de empezar', items: ['Estoy en el proyecto «Claude en Chrome · Reynasa»', 'He iniciado sesión en Sage yo, con mi usuario', 'Sé en qué fase estoy y qué puede hacer Claude', 'Solo tengo una sesión de Claude manejando Chrome'] },
-      { g: 'Mientras trabaja', items: ['La consulta lleva filtro', 'Tengo 5 pantallas o menos (8 solo en picos)', 'Reviso lo que hace'] },
-      { g: 'Al acabar', items: ['Salgo de cada pantalla con el botón de salir de Sage', 'Después cierro la pestaña'] },
+      { g: 'Mientras trabaja', items: ['La consulta lleva filtro', 'Tengo 5 pantallas o menos (8 solo en picos)', 'Descarga en mi carpeta de trabajo', 'Reviso lo que hace'] },
+      { g: 'Al acabar', items: ['Muevo yo el resultado a la carpeta oficial', 'Salgo de cada pantalla con el botón de salir de Sage', 'Después cierro la pestaña'] },
     ],
   };
 });

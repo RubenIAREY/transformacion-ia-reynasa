@@ -40,6 +40,16 @@
     empresa: '<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1"/><path d="M10 21v-3h4v3"/>',
     enchufe: '<path d="M9 2v6"/><path d="M15 2v6"/><path d="M6 8h12v4a6 6 0 0 1-12 0z"/><path d="M12 18v4"/>',
     ventana: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 4v5"/>',
+    carrito: '<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h12l2-8H6"/>',
+    caja: '<path d="m3 7 9-4 9 4v10l-9 4-9-4z"/><path d="m3 7 9 4 9-4"/><path d="M12 11v10"/>',
+    factura: '<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/>',
+    calculadora: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>',
+    euro: '<path d="M17 6.5A7 7 0 1 0 17 17.5"/><path d="M4 10h9"/><path d="M4 14h9"/>',
+    telefono: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
+    carpeta: '<path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+    reloj: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    alerta: '<path d="M12 3 2 20h20z"/><path d="M12 10v4"/><path d="M12 17h.01"/>',
+    flecha: '<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>',
     izq: '<path d="m15 18-6-6 6-6"/>',
     der: '<path d="m9 18 6-6-6-6"/>',
   };
@@ -87,6 +97,14 @@
       case 'barras': return '<div class="barras">' + (b.titulo ? '<p class="barras__t">' + b.titulo + '</p>' : '') + b.items.map(function (r) { return '<div class="barra-f' + (r.marca ? ' barra-f--marca' : '') + '"><span class="barra-f__l">' + r.l + '</span><span class="barra-f__b"><i style="width:' + r.v + '%"></i></span><span class="barra-f__n"><b>' + r.n + '</b>' + (r.d ? '<small>' + r.d + '</small>' : '') + '</span></div>'; }).join('') + '</div>';
       case 'capas': return '<ol class="capas">' + b.items.map(function (c, k) { return '<li><span class="capas__n">' + (k + 1) + '</span><div><b>' + c.k + '</b><span>' + c.x + '</span></div></li>'; }).join('') + '</ol>';
       case 'recorrido': return recorrido(imp);
+      case 'deptos': return '<div class="deptos">' + b.items.map(function (d) {
+        return '<article class="depto"><header>' + circ(d.ico) + '<h3>' + d.k + '</h3></header>' +
+          '<div class="depto__hoy"><small>Hoy</small><p>' + d.hoy + '</p></div>' +
+          '<div class="depto__con"><small>' + ico('flecha') + 'Con Claude en Chrome</small><ul>' + lis(d.con, 'si') + '</ul></div>' +
+          '<div class="depto__gana"><small>Qué ganamos</small><p>' + d.gana + '</p></div>' +
+          (d.nunca ? '<p class="depto__nunca">' + ico('x') + '<span><b>' + (d.nuncaT || 'Nunca') + ':</b> ' + d.nunca + '</span></p>' : '') + '</article>';
+      }).join('') + '</div>';
+      case 'escalera': return '<ol class="escalera">' + b.items.map(function (n, k) { return '<li style="--i:' + k + '"><span class="escalera__n">' + (k + 1) + '</span><b>' + n.k + '</b><span class="escalera__x">' + n.x + '</span><span class="escalera__ej">' + n.ej + '</span><small class="escalera__cuando">' + ico('calendario') + n.cuando + '</small></li>'; }).join('') + '</ol>';
       case 'archivos': return '<div class="archivos"><h3 class="archivos__t">' + ico('bajar') + b.titulo + '</h3><ul>' + b.items.map(function (a) { return '<li><a href="' + M.proyecto + a.f + '" download><span class="archivos__ico">.md</span><span><b>' + a.k + '</b><small>' + a.x + '</small></span>' + ico('bajar') + '</a></li>'; }).join('') + '</ul>' + (imp ? '<p class="nota">Se descargan desde ' + M.url + M.proyecto + '</p>' : '') + '</div>';
       case 'carrusel': return imp ? '<p class="nota">La presentación completa, en PDF: <b>' + M.url + M.presentacionPdf + '</b></p>' : '<div class="carrusel" data-carrusel><p class="carrusel__vacio">Cargando las diapositivas…</p></div><p class="carrusel__acc"><a class="btn" href="' + M.presentacionPdf + '" download>' + ico('bajar') + 'Descargar la presentación en PDF</a></p>';
       case 'prompts': return '<div class="prompts">' + b.items.map(function (p) { return '<article class="prompt"><div class="prompt__cab"><h3>' + p.t + '</h3><span class="chip chip--claude">' + p.tag + '</span></div><p class="prompt__texto">' + esc(p.p) + '</p>' + (imp ? '' : '<button type="button" class="copiar" data-copiar="' + esc(p.p) + '">' + ico('copiar') + 'Copiar</button>') + '</article>'; }).join('') + '</div>';
@@ -317,7 +335,7 @@
 
   var pest = document.querySelector('.pestanas ol');
   pest.innerHTML = P.map(function (p, k) {
-    return (k ? '<li class="pestanas__flecha" aria-hidden="true">→</li>' : '') + '<li class="pestanas__paso pestanas__paso--' + p.id + '"><a href="#/' + delPaso(p.id)[0].id + '" data-paso="' + p.id + '" title="Paso ' + p.n + ': ' + p.t + '"><span class="n">Paso ' + p.n + '</span>' + p.corto + '</a></li>' +
+    return (k ? '<li class="pestanas__flecha" aria-hidden="true">→</li>' : '') + '<li class="pestanas__paso pestanas__paso--' + p.id + '"><a href="#/' + delPaso(p.id)[0].id + '" data-paso="' + p.id + '" title="Paso ' + p.n + ': ' + p.t + '"><span class="n">Paso ' + p.n + '</span><span class="pestanas__largo">' + p.corto + '</span></a></li>' +
       pestDe(p.id).map(function (s) { return '<li data-de="' + p.id + '"><a href="#/' + s.id + '" data-id="' + s.id + '"><span class="n">' + p.n + '.' + numEnPaso(s) + '</span>' + s.corto + '</a></li>'; }).join('');
   }).join('');
 
