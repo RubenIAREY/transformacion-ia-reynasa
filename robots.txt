@@ -1,0 +1,9 @@
+# Fuera de los buscadores. Sí pueden leerla los asistentes de IA cuando una persona les pasa el enlace.
+User-agent: Claude-User
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: *
+Disallow: /

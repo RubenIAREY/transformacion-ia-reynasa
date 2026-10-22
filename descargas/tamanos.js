@@ -1,0 +1,22 @@
+window.TAMANOS = {
+"Transformacion-IA-Reynasa-paso-1-propuesta.pdf": "1,5 MB",
+"Transformacion-IA-Reynasa-paso-2-claude-en-chrome-sage.pdf": "1,3 MB",
+"Transformacion-IA-Reynasa.docx": "1,8 MB",
+"Transformacion-IA-Reynasa.pdf": "2,5 MB",
+"secciones/01-inicio.pdf": "301 KB",
+"secciones/02-mensaje.pdf": "172 KB",
+"secciones/03-it.pdf": "161 KB",
+"secciones/04-sabemos.pdf": "306 KB",
+"secciones/05-reglas.pdf": "189 KB",
+"secciones/06-ruta.pdf": "188 KB",
+"secciones/07-plan.pdf": "204 KB",
+"secciones/08-ok.pdf": "310 KB",
+"secciones/09-falta.pdf": "325 KB",
+"secciones/10-video.pdf": "182 KB",
+"secciones/11-presentacion.pdf": "151 KB",
+"secciones/12-pantallas.pdf": "425 KB",
+"secciones/13-proyecto.pdf": "362 KB",
+"secciones/14-fases.pdf": "329 KB",
+"secciones/15-normas.pdf": "225 KB",
+"secciones/16-fuentes.pdf": "187 KB"
+};
