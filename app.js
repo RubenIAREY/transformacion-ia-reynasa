@@ -216,12 +216,20 @@
   function carrusel(el) {
     var lista = [], cargadas = 0;
     function ruta(n) { return M.presentacion + 'diapo' + String(n).padStart(2, '0') + '.png'; }
-    function prueba(n) {
-      if (n > 60) return monta();
-      var im = new Image();
-      im.onload = function () { lista.push(ruta(n)); prueba(n + 1); };
-      im.onerror = function () { monta(); };
-      im.src = ruta(n);
+    // Se piden las 30 posibles a la vez y se queda con las seguidas desde la 1 (más rápido que de una en una)
+    function prueba() {
+      var MAX = 30, ok = [], pendientes = MAX;
+      for (var n = 1; n <= MAX; n++) (function (n) {
+        var im = new Image();
+        im.onload = function () { ok[n] = true; fin(); };
+        im.onerror = function () { ok[n] = false; fin(); };
+        im.src = ruta(n);
+      })(n);
+      function fin() {
+        if (--pendientes) return;
+        for (var k = 1; k <= MAX && ok[k]; k++) lista.push(ruta(k));
+        monta();
+      }
     }
     function monta() {
       if (!lista.length) { el.innerHTML = '<p class="carrusel__vacio">Las diapositivas se están preparando. Mientras tanto, puedes descargar la presentación en PDF.</p>'; return; }
@@ -243,7 +251,7 @@
       img.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
       img.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) ve(i + (dx < 0 ? 1 : -1)); x0 = null; });
     }
-    prueba(1);
+    prueba();
   }
 
   // ------------------------------------------------------------ escenas
